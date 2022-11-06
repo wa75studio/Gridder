@@ -43,7 +43,7 @@ Dans un premier temps il vous faudra définir certains réglages manuelement, qu
 Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
 **1. Alignement de la première ligne de texte**
-- Hauteur d'x [`par défaut`]
+- Hauteur d'x `par défaut`
 - Ascendante
 - Capitale
 - Ligne de base
@@ -51,7 +51,7 @@ Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
 **2. Afficher la grille de ligne de base**
 - Sur toute la page
-- Au sein des marges [`par défaut`]
+- Au sein des marges `par défaut`
 
 À l'issue du calcul
 - L'interlignage sera ajusté de manière à ce la dernière ligne de texte soit calée sur la marge de pied
@@ -60,15 +60,13 @@ Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
 ### Relancer le script
 Si le script est relancé sur un texte déjà ajusté :
-- il informera l'utilisateur sur le nombre de lignes actuellement au sein du bloc de composition
-- proposera de rerégler l'interlignage de la grille de ligne de base en ajoutant ou supprimant jusqu’à 2 lignes.
+- il informera l'utilisateur sur le nombre de lignes actuelles au sein du bloc de composition (entre les marges)
+- proposera de re-régler l'interlignage de la grille de ligne de base, en ajoutant ou supprimant jusqu’à 2 lignes.
 
 Cette opération peut être effectuée plusieurs fois de suite.
 
 ## License
-
 GNU General Public License v2.0
 
 ## Credits
-
 - [WA75](https://github.com/wa75studio)
