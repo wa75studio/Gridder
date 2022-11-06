@@ -4,20 +4,6 @@
 #target "InDesign"
 
 
-/*
-ÉTAPES
-1. sélection du texte
-	- If leading auto ; ok
-	- If non selection ; ok
-
-2. calcule de la correction
-	- proposition alignement (x-Height, Asc, Caps); ok
-
-# Bugs
-
-*/
-
-
 //DocumentAndBaselineGrids.js
 //Creates a document, then sets preferences for the document grid
 //and baseline grid.
@@ -25,11 +11,11 @@ var myDocument = app.activeDocument;
 var myPage = myDocument.pages.item(0);
 var thisPage = app.activeWindow.activePage;  
 
-//Set the document measurement units to points.
+//Réglages des unités du document en points
 myDocument.viewPreferences.horizontalMeasurementUnits = MeasurementUnits.points;
 myDocument.viewPreferences.verticalMeasurementUnits = MeasurementUnits.points;
 
-/* VARIABLES */
+// déclaration des variables
 var topM = thisPage.marginPreferences.top;
 var leftM = thisPage.marginPreferences.left;
 var bottomM = thisPage.marginPreferences.bottom;
@@ -38,12 +24,11 @@ var myPageHeight = myDocument.documentPreferences.pageHeight;
 var textBlock = myPageHeight - topM - bottomM;
 
 
-/* SELECTION */
+/* Vérification de la selection */
 if (app.documents.length != 0){
-	//If the selection contains more than one item, the selection
-	//is not text selected with the Type tool.
+	// Si la sélection contient plus d'un élément, celle-ci n'est pas un texte sélection avec l'outil texte
 	if (app.selection.length == 1){
-		//Evaluate the selection based on its type.
+		// Évaluation de la selection selon son type.
 		switch (app.selection[0].constructor.name){
 		case "InsertionPoint":
 		case "Character":
@@ -54,7 +39,7 @@ if (app.documents.length != 0){
 		case "TextColumn":
 		case "Text":
 		case "Story":
-			//The object is a text object; pass it on to a function.
+			// Si l'élément est bien un objet texte, on le passe à la fonction de calcul
 			if(app.selection[0].leading == Leading.AUTO){
 				alert('L’interlignage est réglé sur «auto».\n La valeur récupérée est ' + (app.selection[0].pointSize*app.selection[0].autoLeading)/100 + ' points.')
 				var leading = (app.selection[0].pointSize*app.selection[0].autoLeading)/100;
@@ -63,16 +48,14 @@ if (app.documents.length != 0){
 			}
 			
 			// On lance la fonction
-			wa75();
+			gridder();
 		break;
-
-		//In addition to checking for the above text objects, we can
-		//also continue if the selection is a text frame selected with
-		//the Selection tool or the Direct Selection tool.
+				
+		// En cas d'échec, on informe l'utilisateur qu'il faut selectionner du texte.
 		case "Selectionnez du texte et relancez le script":
 
-		//If the selection is a text frame, get a reference to the
-		//text in the text frame.
+		// Si la selection est le bloc texte, on informe l'utilisateur de selection le texte dans le bloc.
+				
 		break;
 
 		default:
@@ -86,14 +69,13 @@ if (app.documents.length != 0){
 }
 
 
+// fonction de calcul
+function gridder(){
 
-function wa75(){
-
-	/* CAP Height calcul*/
+	// Calcul de la hauteur des Capitales
 	var tf = myPage.textFrames.add ({
 		geometricBounds: [0,0,80,80],
 		textFramePreferences : {firstBaselineOffset: FirstBaseline.capHeight},
-		//textFramePreferences : {firstBaselineOffset: FirstBaseline.ASCENT_OFFSET},
 		contents: 'h'
 	});
 	
@@ -103,42 +85,35 @@ function wa75(){
 	tf.parentStory.pointSize = ip.parentStory.characters[ip.index-1].pointSize;
 	
 	var cap_height = tf.characters[0].baseline;
-	// tf.textFramePreferences.firstBaselineOffset = FirstBaseline.ASCENT_OFFSET;
-	// asc_height = real_asc_height;
 	tf.textFramePreferences.firstBaselineOffset = FirstBaseline.xHeight;
 	x_height = tf.characters[0].baseline;
 	
-	// ON VECTORISE LE BLOC
+	// On vectorise le bloc
 	asc_bloc_Outline = tf.createOutlines(false);
 	var outlinedText = asc_bloc_Outline[0];
 	
-	// ON CALCUL LA TAILLE
+	// On calcul la taille du texte.
 	var Bound = outlinedText.geometricBounds;
 	var asc_height = Bound[2] - Bound[0];
 	
-	// ON EFFACE LES BLOCS
-	
+	// On efface les blocs créés pour le calcul
 	outlinedText.remove();
 	tf.remove();
 		
-	
 	var offset  = cap_height;
 	
-
-	/* ON VERIFIE SI ON EST DÉJA BON */
 	function isNumeric(e) {
 		return !isNaN(parseFloat(e)) && isFinite(e);
 	}
 	if( ((textBlock- myDocument.gridPreferences.baselineStart) / ip.leading)  % 1 == 0 ){		
 	
-			// AUCUNE CORRECTION, on propose de changer le nombre de lignes
+			// CAS #1 : aucune correction n'est nécessaire, on propose de changer le nombre de lignes
 				var lineCount = textBlock/leading;
 				var lineCountRound =  parseInt(lineCount);
 
 			
 				var dialogLine = app.dialogs.add({name:"Nombre de lignes", canCancel:true});
 				with(dialogLine){
-					//Add a dialog column.
 					with(dialogColumns.add()){
 						with(dialogRows.add()){
 							staticTexts.add({staticLabel:"Votre empagement fait exactement  " + (lineCountRound + 1) + " lignes."});
@@ -148,9 +123,7 @@ function wa75(){
 						staticTexts.add({staticLabel:"Aucune correction n’est nécessaire, mais vous pouvez changez le nombre de lignes."});
 						}
 				
-						//Create another border panel.
 						with(borderPanels.add()) {
-							// staticTexts.add({staticLabel:"Sur quoi voulez-vous alignment de la première ligne de texte :"});
 							var myRadioButtonGroup = radiobuttonGroups.add();
 				
 							with(myRadioButtonGroup){
@@ -166,7 +139,7 @@ function wa75(){
 				
 				}
 				
-				//Display the dialog box.
+				//Affichage de la boîte de dialogue.
 				if(dialogLine.show() == true){
 					if(myRadioButtonGroup.selectedButton == 0){
 						var lineLength = lineCountRound - 1;
@@ -179,7 +152,7 @@ function wa75(){
 					}else if(myRadioButtonGroup.selectedButton == 4){
 						var lineLength  = lineCountRound + 3;	
 					} else { 
-						//Get the point size from the point size field.
+						//Récupération de la valeur personnalisée.
 						var lineLength = myPointSizeField.editValue;
 					}
 				
@@ -191,21 +164,17 @@ function wa75(){
 	
 		} /* FIN CAS 1 */
 		else {
-			// Sinon on calcul des variables à partir de la sélection
+			// CAS #2 : sinon on calcul des variables à partir de la sélection
 			var lineCount = textBlock/leading;
 			var lineCountRound =  parseInt(lineCount);
 		} /* FIN CAS 2*/
 		
 
-	/* Dialog alignement */
+	/* Construction de la boîte de dialogue de l'alignement de la première ligne de texte */
 	var myDialog = app.dialogs.add({name:"Alignment de la première ligne", canCancel:true});
 	with(myDialog){
-		//Add a dialog column.
 		with(dialogColumns.add()){
-
-			//Create another border panel.
 			with(borderPanels.add()) {
-				// staticTexts.add({staticLabel:"Sur quoi voulez-vous alignment de la première ligne de texte :"});
 				var myRadioButtonGroup = radiobuttonGroups.add();
 
 				with(myRadioButtonGroup){
@@ -215,18 +184,15 @@ function wa75(){
 					var myBaseLineRadioButton = radiobuttonControls.add ({staticLabel:"Ligne de base"});
 				} 
 			}
-			// Add a dialog column.
 			with(borderPanels.add()){
 				staticTexts.add({staticLabel:"Offset par rapport à la marge supérieure :"});
-
-				//Create a number (real) entry field.
 				var myPointSizeField = measurementEditboxes.add({editValue:0, editUnits:MeasurementUnits.millimeters});
 			}
 		}
 
 	}
 
-	// START Dialogue alignement
+	// Affichage de la boîte de dialogue de l'alignement de la première ligne de texte
 	if(myDialog.show() == true){
 		if(myRadioButtonGroup.selectedButton == 0){
 			var offset  = x_height + myPointSizeField.editValue;
@@ -237,7 +203,7 @@ function wa75(){
 		}else if(myRadioButtonGroup.selectedButton == 3){
 			var offset  = 0 + myPointSizeField.editValue;
 		} else {
-			//Get the point size from the point size field.
+			//Récupération de la valeur personnalisée.
 			var offset = myPointSizeField.editValue;
 		}
 
@@ -245,9 +211,9 @@ function wa75(){
 		else {
 			myDialog.destroy()
 		}
-	// END Dialogue alignement
+	// Fin de la boîte de dialogue de l'alignement
 	
-	/* CALCUL CORRECTION LEADING */
+	// Calcul de la correction de l'interlignage.
 	
 	var correctedInter = (textBlock - offset)/(lineCountRound-1);
 	var correctedInterRound = correctedInter.toFixed(3);
@@ -345,7 +311,7 @@ function wa75(){
 		
 }
 
-/* FIN WA75 */
+// Fin de la fonction WA75
 
 
 
@@ -370,8 +336,6 @@ function myGetBounds(myDocument, thisPage){
 	
 
 }
-
-
 
 
 myDocument.viewPreferences.horizontalMeasurementUnits = MeasurementUnits.millimeters;
