@@ -1,11 +1,11 @@
 # Gridder
 
 ## Description
-Ce script est pensé comme une aide lors de la mise au point d'une grille de ligne de base dans un fichier indesign. Il permet de l’ajuster et modifier rapidement.
+Ce script est pensé comme une aide lors de la mise au point d'une grille de ligne de base dans un fichier Indesign. Il permet de l’ajuster et modifier rapidement.
 Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernes suisses en général.
 
 ## Installation
-Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts d’inDesign.
+Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts d’Indesign.
 
 ### Sur Mac OS
 `Users/[nom d’utilisateur]/Bibliothèque/Preferences/Adobe InDesign/[version]/[langue]/Scripts/Panneau Scripts`
@@ -13,28 +13,27 @@ Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le 
 ### Sur Windows (Vista et 7)
 `Users\[nom d’utilisateur]\AppData\Roaming\Adobe\InDesign\[version][langue]\Scripts\Scripts Panel`
 
-### Dans inDesign
-Vous pouvez également localiser le dossier dans lequel les scripts de l'utilisateur à partir de Indesign.
-- Lancez Indesign
+### Dans Indesign
+Vous pouvez également localiser le dossier dans lequel les scripts de l'utilisateur.trice sont situés depuis Indesign.
+- lancez Indesign
 - ouvrez le panneau Scripts (`Fenêtre > Utilitaires > Scripts`)
 - sélectionnez le dossier Utilisateur.
-- Cliquez sur le menu du panneau Script et sélectionner la fonction `Faire apparaitre dans le Finder`
-- Organisez librement vos scripts dans le dossier qui s'est ouvert dans le Finder.
+- cliquez sur le menu du panneau Script et sélectionner la fonction `Faire apparaitre dans le Finder`
+- organisez librement vos scripts dans le dossier qui s'est ouvert dans le Finder.
 
-Plus d'informations sur le site d'Adobe (https://helpx.adobe.com/fr/indesign/using/scripting.html)
+Plus d'informations sur le site d'Adobe (https://helpx.adobe.com/fr/Indesign/using/scripting.html)
 
 ## Compatibilité
-Ce script a été testé avec les versions d'Adobe inDesign CS6 à CC2021.
+Ce script a été testé avec les versions d'Adobe Indesign CS6 à CC2021.
 
 ## Utilisation
-L’usage de ce script implique un protocole précis, qui ne conviendra pas à tou.te.s les designers. Il a été essentiellement imaginé pour que le processus de calage de la mise en page soit plus souple.
-
 > Vous pouvez travailler sur une page normale ou un gabarit. Sachez que les modifications de la grille de ligne de base affecteront le document, donc seront présente sur toutes pages.
 
-Dans un premier temps il vous faudra, selon les caractéristiques propres à votre projet, effectuer manuellement :
+L’usage de ce script implique un protocole précis, qui ne conviendra pas à tou.te.s les designers.
+Dans un premier temps il vous faudra définir certains réglages manuelement, qui correspondent aux caractéristiques propres à votre projet :
 
-- Le réglage du texte courant (choix de la police, corps, interlignage, etc.)
-- La définition des marges sur une page type.
+- le réglage du texte courant (choix de la police, corps, interlignage, etc.)
+- la définition des marges sur une page type.
 
 À partir de ces deux réglages, le script ré-ajustera la linéature de la grille de ligne de base de manière à ce que la dernière ligne de texte soit parfaitement calée sur la marge de pied
 
