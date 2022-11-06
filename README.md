@@ -2,7 +2,7 @@
 
 ## Description
 Ce script est pensé comme une aide lors de la mise au point d'une grille de ligne de base dans un fichier Indesign. Il permet de l’ajuster et modifier rapidement.
-Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernes suisses en général.
+Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernistes en général.
 
 ## Installation
 Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts d’Indesign.
