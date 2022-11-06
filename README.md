@@ -1,11 +1,11 @@
 # Gridder
 
 ## Description
-Ce script est pensé comme une aide lors de la mise au point de grille de ligne de base dans un fichier indesign, afin de les *corriger* et modifier rapidement.
+Ce script est pensé comme une aide lors de la mise au point d'une grille de ligne de base dans un fichier indesign. Il permet de l’ajuster et modifier rapidement, notamment pour déterminer un nombre de rangés coordonées avec la celle-ci.
 Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernes suisses en générale.
 
 ## Installation
-Téléchargez les fichiers du *repository* et copier le dans le dossier des scripts de inDesign.
+Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts de inDesign.
 
 ### Sur Mac OS
 `Users/[nom d’utilisateur]/Bibliothèque/Preferences/Adobe InDesign/[version]/[langue]/Scripts/Panneau Scripts`
@@ -13,7 +13,7 @@ Téléchargez les fichiers du *repository* et copier le dans le dossier des scri
 ### Sur Windows (Vista et 7)
 `Users\[nom d’utilisateur]\AppData\Roaming\Adobe\InDesign\[version][langue]\Scripts\Scripts Panel`
 
-
+### Dans inDesign
 Vous pouvez également localiser le dossier dans lequel les scripts de l'utilisateur à partir de Indesign.
 - Lancez Indesign
 - ouvrez le panneaux Scripts (`Fenêtre > Utilitaires > Scripts`)
