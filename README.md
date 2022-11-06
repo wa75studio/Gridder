@@ -5,7 +5,7 @@ Ce script est pensé comme une aide lors de la mise au point d'une grille de lig
 Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernes suisses en général.
 
 ## Installation
-Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts de inDesign.
+Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts d’inDesign.
 
 ### Sur Mac OS
 `Users/[nom d’utilisateur]/Bibliothèque/Preferences/Adobe InDesign/[version]/[langue]/Scripts/Panneau Scripts`
@@ -16,9 +16,9 @@ Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le 
 ### Dans inDesign
 Vous pouvez également localiser le dossier dans lequel les scripts de l'utilisateur à partir de Indesign.
 - Lancez Indesign
-- ouvrez le panneaux Scripts (`Fenêtre > Utilitaires > Scripts`)
-- selectionnez le dossier Utilisateur.
-- Cliquez sur le menu du panneau Script et sélectionner la fonction `Faire apparaître dans le Finder`
+- ouvrez le panneau Scripts (`Fenêtre > Utilitaires > Scripts`)
+- sélectionnez le dossier Utilisateur.
+- Cliquez sur le menu du panneau Script et sélectionner la fonction `Faire apparaitre dans le Finder`
 - Organisez librement vos scripts dans le dossier qui s'est ouvert dans le Finder.
 
 Plus d'informations sur le site d'Adobe (https://helpx.adobe.com/fr/indesign/using/scripting.html)
@@ -27,16 +27,18 @@ Plus d'informations sur le site d'Adobe (https://helpx.adobe.com/fr/indesign/usi
 Ce script a été testé avec les versions d'Adobe inDesign CS6 à CC2021.
 
 ## Utilisation
-L’usage de ce script implique un protocole précis, qui ne conviendra pas à tou.te.s les designer. Il a été essentielement imaginé pour que le processus de calage de la mise en page soit plus souple.
+L’usage de ce script implique un protocole précis, qui ne conviendra pas à tou.te.s les designers. Il a été essentiellement imaginé pour que le processus de calage de la mise en page soit plus souple.
 
-> Vous pouvez travailler sur une page normal ou un gabarit. Sachez que les modifications de la grille de ligne de base affecteront le document, donc seront présente sur toutes pages.
+> Vous pouvez travailler sur une page normale ou un gabarit. Sachez que les modifications de la grille de ligne de base affecteront le document, donc seront présente sur toutes pages.
 
-Dans un premier temps il vous faudra, selon les caractéristiques propre à votre projet, effectuer manuelement :
+Dans un premier temps il vous faudra, selon les caractéristiques propres à votre projet, effectuer manuellement :
 
 - Le réglage du texte courant (choix de la police, corps, interlignage, etc.)
 - La définition des marges sur une page type.
 
 À partir de ces deux réglages, le script ré-ajustera la linéature de la grille de ligne de base de manière à ce que la dernière ligne de texte soit parfaitement calée sur la marge de pied
+
+> Attention le script ne fonctionnera pas si l'interlignage est réglé sur `automatique`.
 
 ### Options
 Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
@@ -59,12 +61,10 @@ Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
 ### Relancer le script
 Si le script est relancé sur un texte déjà ajusté :
-- il informera l'utilisateur sur le nombre de lignes actuelement au sein du bloc de composition
+- il informera l'utilisateur sur le nombre de lignes actuellement au sein du bloc de composition
 - proposera de rerégler l'interlignage de la grille de ligne de base en ajoutant ou supprimant jusqu’à 2 lignes.
 
-Cette opération peut être effectuée plusière 
-
-
+Cette opération peut être effectuée plusieurs fois de suite.
 
 ## License
 
