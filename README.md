@@ -1,8 +1,8 @@
 # Gridder
 
 ## Description
-Ce script est pensé comme une aide lors de la mise au point d'une grille de ligne de base dans un fichier indesign. Il permet de l’ajuster et modifier rapidement, notamment pour déterminer un nombre de rangés coordonées avec la celle-ci.
-Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernes suisses en générale.
+Ce script est pensé comme une aide lors de la mise au point d'une grille de ligne de base dans un fichier indesign. Il permet de l’ajuster et modifier rapidement.
+Il est construit sur notre manière de travailler chez [WA75](http://wa75.com), elle-même adossée sur les méthodes de Josef Müller-Brockmann, Jost Hochuli et les modernes suisses en général.
 
 ## Installation
 Téléchargez les fichiers du *repository* et copier le fichier `gridder.js` le dans le dossier des scripts de inDesign.
@@ -24,25 +24,38 @@ Vous pouvez également localiser le dossier dans lequel les scripts de l'utilisa
 Plus d'informations sur le site d'Adobe (https://helpx.adobe.com/fr/indesign/using/scripting.html)
 
 ## Compatibilité
-Ce script a été testé avec les versions d'Adobe inDesign CS6 à CC 2021.
+Ce script a été testé avec les versions d'Adobe inDesign CS6 à CC2021.
 
 ## Utilisation
-L’usage de script implique un protocole précis, qui ne conviendra pas à tou.te.s les designer, il a été essentielement imaginé pour que le processus de calage de la mise en page soit plus souple.
+L’usage de ce script implique un protocole précis, qui ne conviendra pas à tou.te.s les designer. Il a été essentielement imaginé pour que le processus de calage de la mise en page soit plus souple.
+
+> Vous pouvez travailler sur une page normal ou un gabarit. Sachez que les modifications de la grille de ligne de base affecteront le document, donc seront présente sur toutes pages.
 
 Dans un premier temps il vous faudra manuelement effectuer :
 
-- Le réglage du texte courant
-- La définition des marges
+- Le réglage du texte courant (choix de la police, corps, interlignage, etc.)
+- La définition des marges sur une page type.
 
-à partir de ces deux réglages, le script ré-ajustera la linéature de la grille de ligne de base de manière à ce qu'elle soient parfaitement calée par rapport aux marges de tête et de pied.
+À partir de ces deux réglages, le script ré-ajustera la linéature de la grille de ligne de base de manière à ce que la dernière ligne de texte soit parfaitement calée sur la marge de pied
 
-- De manière à obtenir des drapeaux sans mots courts en bout de ligne, il remplace les espaces les suivants par une espace insécable (`&nbsp;`), Ceux-ci se retrouvent ainsi en début de ligne.
-- Il remplace certains caractères par les glyphes appropriés (signe multiplié, abréviation de numéro, etc.)
-- Il corrige des mésusages de ponctuaction (trois points, exposants de mètres carrés ou des siècles, etc.)
+### Réglages
+Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
-Le paramètre `$nowrap` permet de de choisir la longueur des mots à coller au suivant.
+**1. Alignemeent de la première ligne de texte**
+- Hauteur d'x [`par défaut`]
+- Ascendante
+- Capitale
+- Ligne de base
+- Régalement personnalisé
 
-Il est possible de rajouter des règles dans le fichier `patterns.json`, situé dans le dossier `assets`.
+**2. Afficher la grille de ligne de base**
+- Sur toute la page
+- Au sein des marges [`par défaut`]
+
+À l'issue du calcul :
+- L'interlignage sera ajuster de manière à ce la dernière ligne de texte soit calée sur la marge de pied
+- le bloc texte occupera tout l'espace compris dans les marges,
+
 
 
 ## License
