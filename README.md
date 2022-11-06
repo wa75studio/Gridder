@@ -47,7 +47,7 @@ Il est possible de rajouter des règles dans le fichier `patterns.json`, situé 
 
 ## License
 
-GNU v.2
+GNU General Public License v2.0
 
 ## Credits
 
