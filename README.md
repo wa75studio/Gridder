@@ -31,17 +31,17 @@ L’usage de ce script implique un protocole précis, qui ne conviendra pas à t
 
 > Vous pouvez travailler sur une page normal ou un gabarit. Sachez que les modifications de la grille de ligne de base affecteront le document, donc seront présente sur toutes pages.
 
-Dans un premier temps il vous faudra manuelement effectuer :
+Dans un premier temps il vous faudra, selon les caractéristiques propre à votre projet, effectuer manuelement :
 
 - Le réglage du texte courant (choix de la police, corps, interlignage, etc.)
 - La définition des marges sur une page type.
 
 À partir de ces deux réglages, le script ré-ajustera la linéature de la grille de ligne de base de manière à ce que la dernière ligne de texte soit parfaitement calée sur la marge de pied
 
-### Réglages
+### Options
 Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
-**1. Alignemeent de la première ligne de texte**
+**1. Alignement de la première ligne de texte**
 - Hauteur d'x [`par défaut`]
 - Ascendante
 - Capitale
@@ -52,9 +52,17 @@ Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 - Sur toute la page
 - Au sein des marges [`par défaut`]
 
-À l'issue du calcul :
-- L'interlignage sera ajuster de manière à ce la dernière ligne de texte soit calée sur la marge de pied
+À l'issue du calcul
+- L'interlignage sera ajusté de manière à ce la dernière ligne de texte soit calée sur la marge de pied
 - le bloc texte occupera tout l'espace compris dans les marges,
+
+
+### Relancer le script
+Si le script est relancé sur un texte déjà ajusté :
+- il informera l'utilisateur sur le nombre de lignes actuelement au sein du bloc de composition
+- proposera de rerégler l'interlignage de la grille de ligne de base en ajoutant ou supprimant jusqu’à 2 lignes.
+
+Cette opération peut être effectuée plusière 
 
 
 
