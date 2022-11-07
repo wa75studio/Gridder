@@ -42,12 +42,16 @@ Dans un premier temps il vous faudra définir certains réglages manuelement, qu
 ### Options
 Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
+![alignement](img/01-alignement.png)
+
 **1. Alignement de la première ligne de texte**
 - Hauteur d'x `par défaut`
 - Ascendante
 - Capitale
 - Ligne de base
 - Régalement personnalisé
+
+![alignement](img/02-depart-grille.png)
 
 **2. Afficher la grille de ligne de base**
 - Sur toute la page
@@ -59,6 +63,9 @@ Lors du calcul deux options sont proposées pour guider l'utilisateur.trice :
 
 
 ### Relancer le script
+
+![alignement](img/03-ajustement.png)
+
 Si le script est relancé sur un texte déjà ajusté :
 - il informera l'utilisateur sur le nombre de lignes actuelles au sein du bloc de composition (entre les marges)
 - proposera de re-régler l'interlignage de la grille de ligne de base, en ajoutant ou supprimant jusqu’à 2 lignes.
