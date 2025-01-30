@@ -24,7 +24,7 @@ Vous pouvez également localiser le dossier dans lequel les scripts de l'utilisa
 Plus d'informations sur le site d'Adobe (https://helpx.adobe.com/fr/Indesign/using/scripting.html)
 
 ## Compatibilité
-Ce script a été testé avec les versions d'Adobe Indesign CS6 à CC2021.
+Ce script a été testé avec les versions d'Adobe Indesign CS6 à CC2025.
 
 ## Utilisation
 > Vous pouvez travailler sur une page normale ou un gabarit. Sachez que les modifications de la grille de ligne de base affecteront le document, donc seront présente sur toutes pages.
